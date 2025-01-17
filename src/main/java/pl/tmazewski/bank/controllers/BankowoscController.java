@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.tmazewski.bank.model.Client;
 import pl.tmazewski.bank.repository.ClientRepository;
 
-@RestController
+@Controller
 public class BankowoscController {
 
     @Autowired
@@ -17,24 +17,11 @@ public class BankowoscController {
     @Autowired
     private ClientRepository clientRepository;
 
-    @GetMapping(path = "/client")
-    public ResponseEntity<?> createEmployee() {
-        Client client = new Client();
-        client.setPesel("33423423");
-        client.setName("Roman");
-        client.setAdress("dfas");
-        client.setSurname("Paweł");
-        client.setAdress("dfas");
-        client.setEmail("dsafsdf");
-        clientRepository.save(client);
-        return ResponseEntity.ok(client);
-    }
-
 
 
     @GetMapping({"/online"})
     public String bankowosc() {
-        return "Greetings from Spring Boot!</br>".concat("<a href='/online'>Bankowość online.</a>\n").concat("<a href='/bankomat'>Obsługa bankomatów</a>");
+        return "bankowosc";
     }
 
 }
